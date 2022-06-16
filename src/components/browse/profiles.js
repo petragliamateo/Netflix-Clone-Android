@@ -1,11 +1,13 @@
-import { Text, View, Image } from 'react-native';
+import {
+  Text, View, Image, ScrollView, Pressable,
+} from 'react-native';
 import styles from './browseStyle';
 import LogoImage from '../LogoImage';
 import { userImages, edit, add } from '../../../public/images';
 
 export function SelectProfile({ user, setProfile }) {
   return (
-    <View>
+    <ScrollView>
       <View style={styles.header}>
         <Text style={styles.headerBrowseItems} />
         <LogoImage style={styles.headerBrowseItems} />
@@ -21,14 +23,13 @@ export function SelectProfile({ user, setProfile }) {
         <Text style={styles.title}>¿Quién está viendo ahora?</Text>
 
         <View style={styles.list}>
-          <Text
+          <Pressable
             style={styles.user}
             onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
-            onPressIn
           >
             <LogoImage src={userImages[user.photoURL]} width={80} height={80} radius={3} />
             <Text style={styles.name}>{user.displayName}</Text>
-          </Text>
+          </Pressable>
 
           <View style={styles.user}>
             <LogoImage src={`${userImages[1]}`} width={80} height={80} radius={3} />
@@ -49,6 +50,6 @@ export function SelectProfile({ user, setProfile }) {
         </View>
 
       </View>
-    </View>
+    </ScrollView>
   );
 }

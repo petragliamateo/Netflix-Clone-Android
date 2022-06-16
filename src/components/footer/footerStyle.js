@@ -4,12 +4,12 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    paddingHorizontal: '24px',
-    paddingTop: '50px',
-    paddingBottom: '10px',
+    paddingHorizontal: 24,
+    paddingTop: 50,
+    paddingBottom: 10,
     marginHorizontal: 'auto',
     width: '100%',
-    maxWidth: '800px',
+    maxWidth: 800,
     flexDirection: 'column',
   },
   flex: {
@@ -20,22 +20,22 @@ const styles = StyleSheet.create({
   },
   link: {
     color: '#757575',
-    marginBottom: '16px',
-    fontSize: '13px',
-    maxWidth: '190px',
-    minWidth: '120px',
+    marginBottom: 16,
+    fontSize: 13,
+    maxWidth: 190,
+    minWidth: 120,
     flexBasis: '50%',
-    paddingRight: '12px',
+    paddingRight: 12,
   },
   title: {
-    fontSize: '16px',
+    fontSize: 16,
     color: '#757575',
-    marginBottom: '40px',
+    marginBottom: 40,
   },
   text: {
-    fontSize: '13px',
+    fontSize: 13,
     color: '#757575',
-    marginVertical: '24px',
+    marginVertical: 24,
   },
 });
 

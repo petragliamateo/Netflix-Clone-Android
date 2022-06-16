@@ -24,7 +24,7 @@ export default function SignupModal({ navigation }) {
         <Text style={{
           color: '#000000',
           textAlign: 'center',
-          fontSize: '16px',
+          fontSize: 16,
           fontWeight: '400',
         }}
         >
@@ -37,7 +37,7 @@ export default function SignupModal({ navigation }) {
           }
           placeholder="Email o número de teléfono"
           value={form.email}
-          onChange={({ target }) => setForm((prev) => ({ ...prev, email: target.value }))}
+          onChangeText={(text) => setForm((prev) => ({ ...prev, email: text }))}
         />
         <Text style={styles.textInvalid}>
           {(!isEmailValid && form.email) && 'Ingresa una dirección de email válida.'}
@@ -45,7 +45,7 @@ export default function SignupModal({ navigation }) {
 
         <Text
           style={styles.button}
-          onPress={isEmailValid ? handleSubmit : ''}
+          onPress={isEmailValid ? handleSubmit : null}
         >
           COMIENZA YA
         </Text>

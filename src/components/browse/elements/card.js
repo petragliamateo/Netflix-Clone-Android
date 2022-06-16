@@ -8,13 +8,13 @@ import getImage from '../../../../public/images/getImage';
 
 const styles = StyleSheet.create({
   card: {
-    margin: '5px',
+    margin: 5,
   },
   ventana: {
     marginHorizontal: 20,
     marginVertical: 'auto',
     backgroundColor: '#252525',
-    padding: '20px',
+    padding: 20,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -49,21 +49,21 @@ export default function Card({ content, type, width = 100 }) {
           <LogoImage src={getImage(type, genre, slug, 'large')} width={300} height={150} radius={3} />
           <Text
             style={{
-              color: '#ffffff', fontSize: '18px', width: '100%', textAlign: 'left', marginTop: '10px',
+              color: '#ffffff', fontSize: 18, width: '100%', textAlign: 'left', marginTop: 10,
             }}
           >
             {title}
           </Text>
           <Text
             style={{
-              color: '#cccccc', fontSize: '12px', width: '100%', textAlign: 'left', marginVertical: '10px',
+              color: '#cccccc', fontSize: 12, width: '100%', textAlign: 'left', marginVertical: 10,
             }}
           >
             {`${maturity}+  ${genre}`}
           </Text>
           <Text
             style={{
-              color: '#ffffff', fontSize: '14px', width: '100%', textAlign: 'left', marginBottom: '5px',
+              color: '#ffffff', fontSize: 14, width: '100%', textAlign: 'left', marginBottom: 5,
             }}
           >
             {description}

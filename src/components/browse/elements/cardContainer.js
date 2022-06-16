@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     width: '100%',
     textAlign: 'left',
-    fontSize: '16px',
+    fontSize: 16,
     fontWeight: '500',
-    paddingHorizontal: '10px',
+    paddingHorizontal: 10,
   },
 });
 
@@ -23,7 +23,7 @@ export default function CardContainer({ set, type }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{set.title}</Text>
-      <ScrollView horizontal style={{ paddingLeft: '5px' }}>
+      <ScrollView horizontal style={{ paddingLeft: 5 }}>
         {
           set.data.map((item) => (
             <View key={`${item.genre}-${item.title.toLowerCase()}`}>

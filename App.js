@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
-import { Text } from 'react-native';
 
 import { firebase } from './src/lib/firebase';
 import { FirebaseContext } from './src/context.firebase';

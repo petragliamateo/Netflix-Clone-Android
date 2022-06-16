@@ -15,10 +15,10 @@ export default function BrowsePage({
 
   return (
     <ScrollView
-      StickyHeaderComponent
-      stickyHeaderIndices={[1]}
+      stickyHeaderIndices={[0]}
       stickyHeaderHiddenOnScroll
     >
+
       <TopHeader
         profile={profile}
       />
@@ -37,7 +37,6 @@ export default function BrowsePage({
           return <CardContainer set={item} key={`${item.title}-${item.data[0].slug}`} type={type} />;
         })
       }
-
     </ScrollView>
   );
 }

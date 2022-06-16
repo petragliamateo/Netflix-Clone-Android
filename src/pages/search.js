@@ -10,12 +10,12 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: '500',
     height: '100%',
     backgroundColor: '#000000',
     width: '100%',
-    maxWidth: '800px',
+    maxWidth: 800,
     marginHorizontal: 'auto',
   },
   inputContainer: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    padding: '10px',
+    padding: 10,
     backgroundColor: '#353535',
   },
 });
@@ -36,19 +36,19 @@ export default function Search() {
       <View style={styles.inputContainer}>
         <LogoImage src={search} width={15} height={15} />
         <TextInput
-          style={{ width: '100%', color: '#888888', marginHorizontal: '10px' }}
+          style={{ width: '100%', color: '#888888', marginHorizontal: 10 }}
           value={searchTerm}
-          onChange={({ target }) => setSearchTerm(target.value)}
+          onChangeText={(text) => setSearchTerm(text)}
           placeholder="Buscar una serie, una peli, un género.."
         />
       </View>
 
       <Text style={{
-        fontSize: '18px',
+        fontSize: 18,
         fontWeight: '500',
         color: '#ffffff',
-        marginVertical: '15px',
-        paddingHorizontal: '5px',
+        marginVertical: 15,
+        paddingHorizontal: 5,
         width: '100%',
         textAlign: 'left',
       }}

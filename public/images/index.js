@@ -9,7 +9,7 @@ export const userImages = [
 export const loading = 'https://media.wired.com/photos/592744d3f3e2356fd800bf00/master/w_2560%2Cc_limit/Netflix_LoadTime.gif';
 export const edit = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hKQIYDFZlOFGco6kdAklHCoN_hv0NqzvsUoMji-y0JMR95Lu7bL6orUCtRgiMmgZX80&usqp=CAU';
 export const add = 'https://image.jimcdn.com/app/cms/image/transf/none/path/s14afea31fbe407bb/image/iceb537822149c208/version/1586556435/image.png';
-export const logoN = 'https://upload.wikimedia.org/wikipedia/commons/0/0c/Netflix_2015_N_logo.svg';
+export const logoN = 'https://www.pngmart.com/files/21/Netflix-N-Logo-PNG-Image.png';
 export const plus = 'https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg';
 export const info = 'https://icon-library.com/images/information-icon-white/information-icon-white-6.jpg';
 export const play = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQU8sayn7Smd2HprQmuRE1e9HhRYeKapowbYw&usqp=CAU';

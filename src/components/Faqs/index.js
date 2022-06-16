@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, Text, Image, TouchableOpacity, Animated,
+  View, Text, Image, TouchableOpacity, ScrollView, Pressable,
 } from 'react-native';
 
 import styles from './faqsStyle';
@@ -25,37 +25,37 @@ export default function Faqs() {
   }
 
   return (
-    <View style={styles.inner}>
+    <ScrollView style={styles.inner}>
       <Text style={styles.title}>Preguntas frecuentes</Text>
       {faqsData.map((faq) => (
         <View key={faq.id} style={styles.item}>
           <TouchableOpacity>
-            <Text style={styles.header} onPress={() => handleSet(faq)}>
-              {faq.header}
+            <Pressable style={styles.header} onPress={() => handleSet(faq)}>
+              <Text style={styles.headerTitle}>{faq.header}</Text>
               {isShow[faqsData.indexOf(faq)] ? (
                 <Image
                   source={{ uri: 'https://icon-library.com/images/white-plus-icon/white-plus-icon-3.jpg' }}
-                  style={{ width: '15px', height: '15px', transform: 'rotate(45deg)' }}
+                  style={{ width: 15, height: 15, transform: [{ rotate: '45deg' }] }}
                 />
               ) : (
                 <Image
                   source={{ uri: plus }}
-                  style={{ width: '15px', height: '15px' }}
+                  style={{ width: 15, height: 15 }}
                 />
               )}
-            </Text>
+            </Pressable>
           </TouchableOpacity>
 
-          <Animated.View>
+          <View>
             <Text style={isShow[faqsData.indexOf(faq)] ? styles.text : styles.hidden}>
               {faq.body}
             </Text>
-          </Animated.View>
+          </View>
 
         </View>
       ))}
 
       <Email />
-    </View>
+    </ScrollView>
   );
 }

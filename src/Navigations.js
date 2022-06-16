@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import {
   Home, Signin, Browse, Signup, SignupModal, ProfileSetup, Search
 } from './pages';
@@ -23,23 +23,10 @@ export default function Navigations() {
         <Stack.Screen
           name="Home"
           options={{
-            headerTitle: () => <LogoImage width={100} />,
-            headerStyle: styles.navigate,
-            headerShadowVisible: false,
-            headerTintColor: '#fff',
-          }}
-          component={Signin}
-        />
-        {/*
-        <Stack.Screen
-          name="Home"
-          options={{
-            headerTransparent: true,
-            header: () => <HeaderHome />
+            headerShown: false
           }}
           component={Home}
         />
-        
         <Stack.Screen
           name="Signin"
           options={{
@@ -91,7 +78,7 @@ export default function Navigations() {
             options={{
               headerRight: () => (
                 <View style={{
-                  display: 'flex', flexDirection: 'row', margin: '15px', width: '60px', justifyContent: 'space-between'
+                  display: 'flex', flexDirection: 'row', margin: 15, width: 60, justifyContent: 'space-between'
                 }}>
                   <LogoImage src={cast} width={25} height={20} />
                   <LogoImage src={userImages[user.photoURL]} width={20} height={20} radius={5} />
@@ -107,6 +94,7 @@ export default function Navigations() {
             component={Search}
           />
         </Stack.Group>
+        {/*
         */}
       </Stack.Navigator>
     </NavigationContainer>
@@ -122,24 +110,6 @@ function HeaderSignup() {
       <View style={styles.headerButtonsContainer}>
         <Text style={styles.headerButtons}>AYUDA</Text>
         <Text style={styles.headerButtons} onPress={() => navigation.navigate('Signin')}>INICIAR SESIÓN</Text>
-      </View>
-    </View>
-  );
-}
-
-function HeaderHome() {
-  const navigation = useNavigation();
-  return (
-    <View style={styles.headerHome}>
-      <LogoImage
-        src={logoN}
-        width={21} height={40}
-      />
-
-      <View style={styles.headerButtonsContainer}>
-        <Text style={styles.headerButtonsWhite}>PRIVACIDAD</Text>
-        <Text style={styles.headerButtonsWhite} onPress={() => navigation.navigate('Signin')}>INICIAR SESIÓN</Text>
-        <Text style={styles.headerButtons}>...</Text>
       </View>
     </View>
   );

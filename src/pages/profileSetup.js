@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: '500',
     height: '100%',
     backgroundColor: '#000000',
     width: '100%',
-    maxWidth: '800px',
+    maxWidth: 800,
     marginHorizontal: 'auto',
-    padding: '20px',
+    padding: 20,
   },
   perfiles: {
     width: '100%',
@@ -33,45 +33,45 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   user: {
-    marginTop: '20px',
-    marginHorizontal: '3px',
+    marginTop: 20,
+    marginHorizontal: 3,
     display: 'flex',
-    maxWidth: '100px',
+    maxWidth: 100,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
   name: {
     color: '#999999',
-    fontSize: '12px',
-    margin: '5px',
+    fontSize: 12,
+    margin: 5,
   },
   nameSelected: {
     color: '#ffffff',
-    fontSize: '12px',
-    margin: '5px',
+    fontSize: 12,
+    margin: 5,
   },
   text: {
     color: '#dddddd',
-    marginVertical: '10px',
+    marginVertical: 10,
   },
   menuContainer: {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: '500',
     color: '#dddddd',
-    marginHorizontal: '20px',
+    marginHorizontal: 20,
   },
   menu: {
-    marginBottom: '10px',
+    marginBottom: 10,
   },
   myList: {
-    marginBottom: '10px',
+    marginBottom: 10,
     borderBottomColor: '#666666',
-    borderBottomWidth: '1px',
-    paddingBottom: '5px'
+    borderBottomWidth: 1,
+    paddingBottom: 5
   }
 });
 
@@ -79,7 +79,6 @@ export default function ProfileSetup() {
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   const navigation = useNavigation();
-  console.log(user);
 
   return (
     <View style={styles.container}>
@@ -90,7 +89,7 @@ export default function ProfileSetup() {
             onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
             onPressIn
           >
-            <View style={true ? {borderWidth: '2px', borderColor: '#ffffff'} : {}}>
+            <View style={true ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
               <LogoImage src={userImages[user.photoURL]} width={true ? 50 : 40} height={50} radius={3} />
             </View>
             <Text style={true ? styles.nameSelected : styles.name}>{user.displayName}</Text>
@@ -101,7 +100,7 @@ export default function ProfileSetup() {
             onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
             onPressIn
           >
-            <View style={false ? {borderWidth: '2px', borderColor: '#ffffff'} : {}}>
+            <View style={false ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
               <LogoImage src={userImages[user.photoURL]} width={false ? 50 : 40} height={40} radius={3} />
             </View>
             <Text style={false ? styles.nameSelected : styles.name}>{user.displayName}</Text>

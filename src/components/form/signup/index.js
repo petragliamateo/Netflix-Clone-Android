@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import {
-  Text, View, TextInput,
+  Text, TextInput, ScrollView,
 } from 'react-native';
 import React from 'react';
 import { FormContext } from '../../../context.form';
@@ -15,7 +15,7 @@ export default function Form({
   const isValid = isEmailValid && isPasswordValid;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
 
       <Text style={styles.subTitle}>
         ¿Todo listo para disfrutar series y películas ilimitadas?
@@ -30,7 +30,7 @@ export default function Form({
         }
         placeholder="Email o número de teléfono"
         value={form.email}
-        onChange={({ target }) => setForm((prev) => ({ ...prev, email: target.value }))}
+        onChangeText={(text) => setForm((prev) => ({ ...prev, email: text }))}
       />
       <Text style={styles.textInvalid}>
         {(!isEmailValid && form.email) && 'Ingresa una dirección de email válida.'}
@@ -43,7 +43,7 @@ export default function Form({
         }
         placeholder="Contraseña"
         value={form.password}
-        onChange={({ target }) => setForm((prev) => ({ ...prev, password: target.value }))}
+        onChangeText={(text) => setForm((prev) => ({ ...prev, password: text }))}
       />
       <Text style={styles.textInvalid}>
         {(!isPasswordValid && form.password) && 'La contraseña debe tener entre 6 y 60 caracteres.'}
@@ -51,10 +51,10 @@ export default function Form({
 
       <Text
         style={styles.button}
-        onPress={isValid ? handleSignup : ''}
+        onPress={isValid ? handleSignup : null}
       >
         {form.loading ? 'Loading..' : 'Continuar'}
       </Text>
-    </View>
+    </ScrollView>
   );
 }

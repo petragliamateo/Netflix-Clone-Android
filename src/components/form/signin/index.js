@@ -14,12 +14,12 @@ export default function Form({
 
   return (
     <View style={styles.container}>
-      <Text style={form.error ? styles.error : { display: 'hidden' }}>{form.error}</Text>
+      <Text style={form.error ? styles.error : { display: 'none' }}>{form.error}</Text>
       <TextInput
         style={focus.focusEmail ? styles.inputFocus : styles.input}
         placeholder="Email o número de teléfono"
         value={form.email}
-        onChange={({ target }) => setForm((prev) => ({ ...prev, email: target.value }))}
+        onChangeText={(text) => setForm((prev) => ({ ...prev, email: text }))}
         onFocus={() => setFocus({ focusEmail: true, focusPassword: false })}
       />
       <TextInput
@@ -27,12 +27,12 @@ export default function Form({
         style={focus.focusPassword ? styles.inputFocus : styles.input}
         placeholder="Contraseña"
         value={form.password}
-        onChange={({ target }) => setForm((prev) => ({ ...prev, password: target.value }))}
+        onChangeText={(text) => setForm((prev) => ({ ...prev, password: text }))}
         onFocus={() => setFocus({ focusEmail: false, focusPassword: true })}
       />
       <Text
         style={isInvalid ? styles.button : styles.buttonValid}
-        onPress={isInvalid ? '' : handleSignin}
+        onPress={isInvalid ? null : handleSignin}
       >
         {form.loading ? 'Loading..' : 'Iniciar sesión'}
       </Text>

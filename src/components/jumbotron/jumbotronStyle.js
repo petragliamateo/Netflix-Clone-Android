@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   inner: {
-    maxWidth: '1000px',
-    width: '100%',
+    maxWidth: 1000,
   },
   container: {
     flex: 1,
@@ -12,25 +11,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: '28px',
-    lineHeight: '1.1',
-    marginBottom: '8px',
+    fontSize: 28,
+    marginBottom: 8,
     fontWeight: '600',
   },
   subTitle: {
-    fontSize: '22px',
-    fontWeight: 'normal',
-    lineHeight: 'normal',
+    fontSize: 22,
   },
   images: {
-    width: '250px',
-    height: '250px',
+    width: 250,
+    height: 250,
     maxWidth: 'auto',
   },
   item: {
     borderBottomColor: '#222',
-    borderBottomWidth: '8px',
-    padding: '50px',
+    borderBottomWidth: 8,
+    padding: 50,
     color: 'white',
     overflow: 'hidden',
     display: 'flex',

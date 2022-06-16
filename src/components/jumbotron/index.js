@@ -9,7 +9,7 @@ export default function Jumbotron() {
     <View style={styles.container}>
 
       {jumboData.map((item) => (
-        <Text style={styles.inner} key={item.id}>
+        <View style={styles.inner} key={item.id}>
 
           <Text style={styles.item}>
             <Text style={styles.title}>
@@ -22,7 +22,7 @@ export default function Jumbotron() {
             {item.video && <Text> Video </Text> }
           </Text>
 
-        </Text>
+        </View>
       ))}
 
     </View>

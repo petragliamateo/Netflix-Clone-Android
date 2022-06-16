@@ -18,7 +18,7 @@ export default function Email({ navigation }) {
         style={styles.input}
         placeholder="Email"
         value={form.email}
-        onChange={({ target }) => setForm((prev) => ({ ...prev, email: target.value }))}
+        onChangeText={(text) => setForm((prev) => ({ ...prev, email: text }))}
       />
       <Text style={styles.button} onPress={() => navigation.navigate('SignupModal')}>
         <Text>Comenzar  {'>'}</Text>

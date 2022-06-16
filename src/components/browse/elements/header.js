@@ -1,8 +1,8 @@
-import { View, Text } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import {
-  logoN, userImages, search, cast,
+  userImages, search, cast, logoN,
 } from '../../../../public/images';
 import LogoImage from '../../LogoImage';
 import { styles } from './elementsStyle';
@@ -14,17 +14,17 @@ function TopHeader({ profile }) {
     <View style={styles.topHeader}>
       <LogoImage src={logoN} width={21} height={40} />
       <View style={styles.topHeaderItems}>
-        <Text>
+        <Pressable>
           <LogoImage src={cast} width={20} height={15} />
-        </Text>
+        </Pressable>
 
-        <Text onPress={() => navigation.navigate('Search')}>
+        <Pressable onPress={() => navigation.navigate('Search')}>
           <LogoImage src={search} width={20} height={20} />
-        </Text>
+        </Pressable>
 
-        <Text onPress={() => navigation.navigate('ProfileSetup')}>
+        <Pressable onPress={() => navigation.navigate('ProfileSetup')}>
           <LogoImage src={userImages[profile.photoURL]} width={20} height={20} radius={5} />
-        </Text>
+        </Pressable>
 
       </View>
     </View>

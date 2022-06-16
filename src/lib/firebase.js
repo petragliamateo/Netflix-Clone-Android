@@ -19,7 +19,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
-alert('firebase inicializated');
 
 // Creo la database por única vez:
 // seedDatabase(firebase);
