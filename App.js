@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+/* eslint-disable react/jsx-no-constructed-context-values */
+import React from 'react';
+import { Text } from 'react-native';
+
+import { firebase } from './src/lib/firebase';
+import { FirebaseContext } from './src/context.firebase';
+import { FormContext } from './src/context.form';
+
+import Navigations from './src/Navigations';
 
 export default function App() {
+  const [form, setForm] = React.useState({
+    email: '', password: '', error: '', loading: false,
+  });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FormContext.Provider value={{ form, setForm }}>
+      <FirebaseContext.Provider value={{ firebase }}>
+        <Navigations />
+      </FirebaseContext.Provider>
+    </FormContext.Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

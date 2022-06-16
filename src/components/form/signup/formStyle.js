@@ -1,0 +1,82 @@
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'start',
+    height: '100%',
+    paddingHorizontal: '25px',
+    paddingVertical: '50px',
+    maxWidth: '800px',
+    marginHorizontal: 'auto',
+  },
+  error: {
+    backgroundColor: 'orange',
+  },
+  button: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: '25px',
+    height: '50px',
+    width: '100%',
+    borderRadius: '5px',
+    borderWidth: '1px',
+    borderColor: '#e50914',
+    color: 'white',
+    fontSize: '16px',
+    fontWeight: '400',
+    backgroundColor: '#e50914',
+  },
+  subTitle: {
+    color: '#000000',
+    textAlign: 'left',
+    marginBottom: '15px',
+    fontSize: '24px',
+    fontWeight: '600',
+  },
+  text: {
+    color: '#000000',
+    textAlign: 'left',
+    fontSize: '16px',
+    fontWeight: '400',
+  },
+  input: {
+    backgroundColor: '#ffffff',
+    marginTop: '15px',
+    height: '60px',
+    width: '100%',
+    padding: '10px',
+    borderWidth: '1px',
+    borderRadius: '2px',
+  },
+  inputValid: {
+    backgroundColor: '#ffffff',
+    marginTop: '15px',
+    height: '60px',
+    width: '100%',
+    padding: '10px',
+    borderWidth: '1px',
+    borderRadius: '2px',
+    borderColor: 'green',
+  },
+  inputInvalid: {
+    backgroundColor: '#ffffff',
+    marginTop: '15px',
+    height: '60px',
+    width: '100%',
+    padding: '10px',
+    borderWidth: '1px',
+    borderRadius: '2px',
+    borderColor: 'red',
+  },
+  textInvalid: {
+    width: '100%',
+    textAlign: 'left',
+    color: 'red',
+  },
+});
+
+export default styles;

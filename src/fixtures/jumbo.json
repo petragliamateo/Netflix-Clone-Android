@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "title": "Disfruta en tu TV.",
+    "subTitle": "Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.",
+    "image": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png",
+    "video": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-0819.m4v",
+    "alt": "Tiger King on Netflix",
+    "direction": "row"
+  },
+  {
+    "id": 2,
+    "title": "Descarga tus series para verlas offline.",
+    "subTitle": "Guarda tu contenido favorito y tendrás siempre algo para ver.",
+    "image": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg",
+    "alt": "Watch on mobile",
+    "direction": "row-reverse"
+  },
+  {
+    "id": 3,
+    "title": "Disfruta donde quieras.",
+    "subTitle": "Películas y series ilimitadas en tu teléfono, tablet, computadora y TV sin costo extra.",
+    "image": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile.png",
+    "video": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v",
+    "alt": "All devices",
+    "direction": "row"
+  },
+  {
+    "id": 4,
+    "title": "Crea perfiles para niños.",
+    "subTitle": "Los niños vivirán aventuras con sus personajes favoritos en un espacio diseñado exclusivamente para ellos, sin costo con tu membresía.",
+    "image": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/cards/kidsValueProp.png",
+    "alt": "Kids",
+    "direction": "row-reverse"
+  }
+]
