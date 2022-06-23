@@ -1,8 +1,20 @@
 import { Animated } from 'react-native';
 import { useEffect, useRef } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import LogoImage from '../LogoImage';
+import { useAuth } from '../../hooks';
 
 export default function LoadingScreen() {
+  const user = useAuth();
+  const navigation = useNavigation();
+  useEffect(() => {
+    if (!user) {
+      navigation.navigate('Home');
+    } else if (Object.entries(user).length >= 4) {
+      navigation.navigate('Browse');
+    }
+  }, [user]);
+
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -15,6 +27,7 @@ export default function LoadingScreen() {
 
   const stylesAn = {
     loading: {
+      backgroundColor: '#000000',
       height: '100%',
       display: 'flex',
       alignItems: 'center',

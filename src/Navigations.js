@@ -10,6 +10,7 @@ import styles from '../styleGlobal';
 import LogoImage from './components/LogoImage';
 import { useAuth } from './hooks';
 import { cast, logoN, userImages } from '../public/images';
+import LoadingScreen from './components/browse/LoadingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +19,7 @@ export default function Navigations() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={user ? 'Browse' : 'Home'}>
+      <Stack.Navigator initialRouteName={'LoadingScreen'}>
         
         <Stack.Screen
           name="Home"
@@ -26,6 +27,13 @@ export default function Navigations() {
             headerShown: false
           }}
           component={Home}
+        />
+        <Stack.Screen
+          name="LoadingScreen"
+          options={{
+            headerShown: false
+          }}
+          component={LoadingScreen}
         />
         <Stack.Screen
           name="Signin"
