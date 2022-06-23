@@ -22,12 +22,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#e50914',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     height: 40,
-    color: 'white',
     paddingHorizontal: 16,
     borderWidth: 0,
-    fontSize: 16,
     borderRadius: 3,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '400',
   },
   text: {
     color: 'white',

@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import {
-  Text, TextInput, ScrollView,
+  Text, TextInput, ScrollView, Pressable,
 } from 'react-native';
 import React from 'react';
 import { FormContext } from '../../../context.form';
@@ -49,12 +49,12 @@ export default function Form({
         {(!isPasswordValid && form.password) && 'La contraseña debe tener entre 6 y 60 caracteres.'}
       </Text>
 
-      <Text
+      <Pressable
         style={styles.button}
         onPress={isValid ? handleSignup : null}
       >
-        {form.loading ? 'Loading..' : 'Continuar'}
-      </Text>
+        <Text style={styles.buttonText}>{form.loading ? 'Loading..' : 'Continuar'}</Text>
+      </Pressable>
     </ScrollView>
   );
 }

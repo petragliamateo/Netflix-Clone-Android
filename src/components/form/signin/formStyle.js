@@ -42,9 +42,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     borderColor: 'white',
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '400',
   },
   buttonValid: {
     display: 'flex',
@@ -56,10 +53,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#e50914',
+    backgroundColor: '#e50914',
+  },
+  buttonText: {
     color: 'white',
     fontSize: 16,
     fontWeight: '400',
-    backgroundColor: '#e50914',
   },
   subTitle: {
     color: 'white',

@@ -59,15 +59,18 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    fontSize: 18,
-    fontWeight: '500',
-    color: '#dddddd',
     marginHorizontal: 20,
   },
   menu: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#dddddd',
     marginBottom: 10,
   },
   myList: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#dddddd',
     marginBottom: 10,
     borderBottomColor: '#666666',
     borderBottomWidth: 1,
@@ -114,7 +117,7 @@ export default function ProfileSetup() {
 
       </View>
 
-      <Text style={styles.menuContainer}>
+      <View style={styles.menuContainer}>
         <Text style={styles.myList}>
           <LogoImage src={check} width={15} height={15} />
           {'  Mi lista'}
@@ -134,7 +137,7 @@ export default function ProfileSetup() {
         >
           Cerrar sesión
         </Text>
-      </Text>
+      </View>
     </View>
   );
 }

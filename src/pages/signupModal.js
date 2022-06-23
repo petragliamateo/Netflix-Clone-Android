@@ -1,6 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import {
+  View, Text, TextInput, Pressable,
+} from 'react-native';
 import { FormContext } from '../context.form';
 
 import stylesGlobal from '../../styleGlobal';
@@ -23,7 +25,7 @@ export default function SignupModal({ navigation }) {
         </Text>
         <Text style={{
           color: '#000000',
-          textAlign: 'center',
+          textAlign: 'left',
           fontSize: 16,
           fontWeight: '400',
         }}
@@ -43,12 +45,12 @@ export default function SignupModal({ navigation }) {
           {(!isEmailValid && form.email) && 'Ingresa una dirección de email válida.'}
         </Text>
 
-        <Text
+        <Pressable
           style={styles.button}
           onPress={isEmailValid ? handleSubmit : null}
         >
-          COMIENZA YA
-        </Text>
+          <Text style={styles.buttonText}>COMIENZA YA</Text>
+        </Pressable>
       </View>
     </View>
   );

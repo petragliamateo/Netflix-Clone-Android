@@ -7,12 +7,18 @@ import { useAuth } from '../../hooks';
 export default function LoadingScreen() {
   const user = useAuth();
   const navigation = useNavigation();
-  useEffect(() => {
+
+  function autoNav() {
     if (!user) {
       navigation.navigate('Home');
     } else if (Object.entries(user).length >= 4) {
       navigation.navigate('Browse');
     }
+  }
+
+  useEffect(() => {
+    navigation.addListener('focus', autoNav);
+    autoNav();
   }, [user]);
 
   const fadeAnim = useRef(new Animated.Value(0)).current;

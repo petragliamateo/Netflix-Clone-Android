@@ -14,15 +14,15 @@ const styles = StyleSheet.create({
   },
   flex: {
     display: 'flex',
-    justifyContent: 'space-between',
-    textAlign: 'left',
+    flexDirection: 'row',
     flexWrap: 'wrap',
   },
   link: {
+    textAlign: 'left',
     color: '#757575',
     marginBottom: 16,
     fontSize: 13,
-    maxWidth: 190,
+    maxWidth: 160,
     minWidth: 120,
     flexBasis: '50%',
     paddingRight: 12,

@@ -1,5 +1,5 @@
 import {
-  Text, View, TextInput,
+  Text, View, TextInput, Pressable,
 } from 'react-native';
 import React from 'react';
 import { FormContext } from '../../../context.form';
@@ -30,12 +30,12 @@ export default function Form({
         onChangeText={(text) => setForm((prev) => ({ ...prev, password: text }))}
         onFocus={() => setFocus({ focusEmail: false, focusPassword: true })}
       />
-      <Text
+      <Pressable
         style={isInvalid ? styles.button : styles.buttonValid}
         onPress={isInvalid ? null : handleSignin}
       >
-        {form.loading ? 'Loading..' : 'Iniciar sesión'}
-      </Text>
+        <Text style={styles.buttonText}>{form.loading ? 'Loading..' : 'Iniciar sesión'}</Text>
+      </Pressable>
       <Text style={styles.text}>
         ¿Necesitas ayuda?
       </Text>

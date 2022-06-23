@@ -14,13 +14,13 @@ export default function Footer() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>¿Preguntas? Llama al 0000 000 0000</Text>
-      <Text style={styles.flex}>
+      <View style={styles.flex}>
         {linksArray.map((link) => (
           <Text style={styles.link} key={linksArray.indexOf(link)}>
             {link}
           </Text>
         ))}
-      </Text>
+      </View>
       <Text style={styles.text}>Netflix Argentina</Text>
     </View>
   );
