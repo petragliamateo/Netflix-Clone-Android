@@ -90,7 +90,6 @@ export default function ProfileSetup() {
           <Text
             style={styles.user}
             onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
-            onPressIn
           >
             <View style={true ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
               <LogoImage src={userImages[user.photoURL]} width={true ? 50 : 40} height={50} radius={3} />
@@ -101,7 +100,6 @@ export default function ProfileSetup() {
           <Text
             style={styles.user}
             onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
-            onPressIn
           >
             <View style={false ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
               <LogoImage src={userImages[user.photoURL]} width={false ? 50 : 40} height={40} radius={3} />

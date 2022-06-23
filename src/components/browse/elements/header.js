@@ -7,7 +7,7 @@ import {
 import LogoImage from '../../LogoImage';
 import { styles } from './elementsStyle';
 
-function TopHeader({ profile }) {
+function TopHeader({ profile, setCategory }) {
   const navigation = useNavigation();
 
   return (
@@ -18,7 +18,10 @@ function TopHeader({ profile }) {
           <LogoImage src={cast} width={20} height={15} />
         </Pressable>
 
-        <Pressable onPress={() => navigation.navigate('Search')}>
+        <Pressable onPress={() => {
+          setCategory('')
+          navigation.navigate('Search')
+        }}>
           <LogoImage src={search} width={20} height={20} />
         </Pressable>
 

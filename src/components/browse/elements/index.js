@@ -21,6 +21,7 @@ export default function BrowsePage({
 
       <TopHeader
         profile={profile}
+        setCategory={setCategory}
       />
 
       <BotHeader
