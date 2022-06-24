@@ -2,20 +2,18 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: '10%',
     height: '100%',
     width: '100%',
     maxWidth: 800,
     marginHorizontal: 'auto',
-    marginVertical: 50,
+    marginVertical: 100,
   },
   title: {
     color: '#ffffff',
     fontSize: 20,
+    alignSelf: 'center',
+    marginBottom: 20,
   },
   list: {
     display: 'flex',

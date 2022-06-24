@@ -20,7 +20,7 @@ export default function Signup({ navigation }) {
       .then((result) => result.user
         .updateProfile({
           displayName: 'user',
-          photoURL: Math.floor(Math.random() * 5) + 1,
+          photoURL: Math.floor(Math.random() * 6),
         }).then(() => {
           navigation.navigate('Browse');
           setForm((prev) => ({ ...prev, loading: false }));

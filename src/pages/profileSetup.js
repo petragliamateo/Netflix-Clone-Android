@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { FirebaseContext } from '../context.firebase';
 import { edit, userImages, check } from '../../public/images';
 import LogoImage from '../components/LogoImage';
+import { ProfileContext } from '../context.profile';
 
 const styles = StyleSheet.create({
   container: {
@@ -82,6 +83,7 @@ export default function ProfileSetup() {
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   const navigation = useNavigation();
+  const { setProfile } = useContext(ProfileContext);
 
   return (
     <View style={styles.container}>
@@ -108,7 +110,10 @@ export default function ProfileSetup() {
           </Text>
         </View>
 
-        <Text style={styles.text}>
+        <Text style={styles.text} onPress={() => {
+          setProfile('');
+          navigation.navigate('Browse');
+        }}>
           <LogoImage src={edit} width={15} height={15} />
           {'  Administrar perfiles'}
         </Text>

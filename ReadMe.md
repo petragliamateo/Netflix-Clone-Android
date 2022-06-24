@@ -25,3 +25,5 @@ Search:
   El componente de busqueda utilza un algoritmo simple, que encuentra los matches entre lo que se escribe y el título, genero, o tipo de elemento entre de los items.
 
 Users:
+  Uso el context profile como el perfil actual en el que se está.
+  User es el usuario completo creado mediante firebase: firebase.auth().currentUser

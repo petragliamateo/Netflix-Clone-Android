@@ -4,6 +4,7 @@ import {
 import React from 'react';
 import { FormContext } from '../../../context.form';
 import styles from './formStyle';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Form({
   handleSignin,
@@ -11,6 +12,7 @@ export default function Form({
   const { form, setForm } = React.useContext(FormContext);
   const [focus, setFocus] = React.useState({ focusEmail: false, focusPassword: false });
   const isInvalid = form.password === '' || form.email === '';
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>

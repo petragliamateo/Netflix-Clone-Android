@@ -11,11 +11,14 @@ import LogoImage from './components/LogoImage';
 import { useAuth } from './hooks';
 import { cast, logoN, userImages } from '../public/images';
 import LoadingScreen from './components/browse/LoadingScreen';
+import { ProfileContext } from './context.profile';
 
 const Stack = createNativeStackNavigator();
 
 export default function Navigations() {
   const user = useAuth();
+  const { profile } = React.useContext(ProfileContext)
+  console.log(profile);
 
   return (
     <NavigationContainer>
@@ -89,7 +92,7 @@ export default function Navigations() {
                   display: 'flex', flexDirection: 'row', margin: 15, width: 60, justifyContent: 'space-between'
                 }}>
                   <LogoImage src={cast} width={25} height={20} />
-                  <LogoImage src={userImages[user.photoURL]} width={20} height={20} radius={5} />
+                  <LogoImage src={userImages[profile.photoURL]} width={20} height={20} radius={5} />
                 </View>
               ),
               headerTitle: '',
