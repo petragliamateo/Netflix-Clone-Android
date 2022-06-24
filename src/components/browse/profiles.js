@@ -1,6 +1,7 @@
 import {
   Text, View, Image, ScrollView, Pressable,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import styles from './browseStyle';
 import LogoImage from '../LogoImage';
@@ -8,18 +9,8 @@ import { userImages, edit, add } from '../../../public/images';
 
 export function SelectProfile({ user, setProfile }) {
   const [userData, setUserData] = useState([]);
-
-  function addUser() {
-    setUserData((prev) => prev.push({ name: 'user', photo: Math.floor(Math.random() * 6) }));
-    let name = '';
-    let photo = '';
-    userData.forEach((item) => {
-      name += `${item.name}-`;
-      photo += `${item.photo}-`;
-    });
-    console.log(name, photo);
-    user.updateProfile({ displayName: name, photoURL: photo });
-  }
+  const navigation = useNavigation();
+  const [isEditMode, setIsEditMode] = useState(false);
 
   useEffect(() => {
     const userNames = user.displayName.split('-').filter((str) => str);
@@ -29,20 +20,20 @@ export function SelectProfile({ user, setProfile }) {
       data.push({ name: userNames[i], photo: userPhotos[i], id: i });
     }
     setUserData(data);
-    console.log('useEffect');
   }, []);
 
   return (
     <ScrollView>
       <View style={styles.header}>
         <Text style={styles.headerBrowseItems} />
-        <LogoImage style={styles.headerBrowseItems} />
-        <LogoImage
-          style={styles.headerBrowseItems}
-          src={edit}
-          width={30}
-          height={30}
-        />
+        <LogoImage />
+        <Pressable onPress={() => setIsEditMode((prev) => !prev)}>
+          <LogoImage
+            src={edit}
+            width={30}
+            height={30}
+          />
+        </Pressable>
       </View>
 
       <ScrollView style={styles.container}>
@@ -54,15 +45,37 @@ export function SelectProfile({ user, setProfile }) {
             <Pressable
               key={item.id}
               style={styles.user}
-              onPress={() => setProfile({ displayName: item.name, photoURL: item.photo })}
+              onPress={() => {
+                if (isEditMode) {
+                  setProfile({
+                    displayName: item.name, photoURL: item.photo, id: item.id, isNew: false,
+                  });
+                  navigation.navigate('AddUser');
+                } else {
+                  setProfile({ displayName: item.name, photoURL: item.photo, id: item.id });
+                }
+              }}
             >
-              <LogoImage src={userImages[item.photo]} width={80} height={80} radius={3} />
+              <LogoImage
+                src={isEditMode ? edit : userImages[item.photo]}
+                width={80}
+                height={80}
+                radius={3}
+              />
               <Text style={styles.name}>{item.name}</Text>
             </Pressable>
           ))}
 
           {userData.length <= 5 && (
-          <Pressable style={styles.user} onPress={() => addUser()}>
+          <Pressable
+            style={styles.user}
+            onPress={() => {
+              setProfile({
+                displayName: '', photoURL: 0, id: userData.length + 1, isNew: true,
+              });
+              navigation.navigate('AddUser');
+            }}
+          >
             <Image
               source={{ uri: add }}
               style={{ width: 80, height: 80 }}

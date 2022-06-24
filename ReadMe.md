@@ -27,3 +27,18 @@ Search:
 Users:
   Uso el context profile como el perfil actual en el que se está.
   User es el usuario completo creado mediante firebase: firebase.auth().currentUser
+
+addUser:
+  Se puede añadir hasta 6 usuarios, al presionar añadir usuario le pedira nombre y foto de perfil.
+
+editUser:
+  Se puede editar y eliminar usuarios apretando en el boton de edit, en la página de usuarios.
+
+ProfileSetup:
+  Opciones varias donde se puede cambiar de usuario, ir a usuarios o cerrar sesión -> SignOut.
+  -> myList:
+
+
+
+Descargar APK:
+

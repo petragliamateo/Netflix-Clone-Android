@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Text, View, Image } from 'react-native';
 import {
-  Home, Signin, Browse, Signup, SignupModal, ProfileSetup, Search
+  Home, Signin, Browse, Signup, SignupModal, ProfileSetup, Search, AddUser
 } from './pages';
 import styles from '../styleGlobal';
 import LogoImage from './components/LogoImage';
@@ -83,6 +83,18 @@ export default function Navigations() {
               }
             }}
             component={ProfileSetup}
+          />
+          <Stack.Screen
+            name="AddUser"
+            options={{
+              headerTitle: 'Añadir usuario',
+              headerShadowVisible: false,
+              headerTintColor: '#fff',
+              headerStyle: {
+                backgroundColor: '#000000',
+              }
+            }}
+            component={AddUser}
           />
           <Stack.Screen
             name="Search"

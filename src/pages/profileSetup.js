@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
 import { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -12,8 +12,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontSize: 18,
-    fontWeight: '500',
     height: '100%',
     backgroundColor: '#000000',
     width: '100%',
@@ -83,35 +81,47 @@ export default function ProfileSetup() {
   const { firebase } = useContext(FirebaseContext);
   const user = firebase.auth().currentUser || {};
   const navigation = useNavigation();
-  const { setProfile } = useContext(ProfileContext);
+  const { profile, setProfile } = useContext(ProfileContext);
+  
+  const userNames = user.displayName.split('-').filter((str) => str);
+  const userPhotos = user.photoURL.split('-').filter((str) => str);
+  const userData = [];
+  for (let i = 0; i < userNames.length; i += 1) {
+    userData.push({ name: userNames[i], photo: userPhotos[i], id: i });
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.perfiles}>
         <View style={styles.list}>
-          <Text
-            style={styles.user}
-            onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
-          >
-            <View style={true ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
-              <LogoImage src={userImages[user.photoURL]} width={true ? 50 : 40} height={50} radius={3} />
-            </View>
-            <Text style={true ? styles.nameSelected : styles.name}>{user.displayName}</Text>
-          </Text>
 
-          <Text
-            style={styles.user}
-            onPress={() => setProfile({ displayName: user.displayName, photoURL: user.photoURL })}
-          >
-            <View style={false ? {borderWidth: 2, borderColor: '#ffffff'} : {}}>
-              <LogoImage src={userImages[user.photoURL]} width={false ? 50 : 40} height={40} radius={3} />
-            </View>
-            <Text style={false ? styles.nameSelected : styles.name}>{user.displayName}</Text>
-          </Text>
+          {userData.map((item) => (
+            <Pressable
+              key={item.id}
+              style={styles.user}
+              onPress={() => setProfile({ displayName: item.name, photoURL: item.photo, id: item.id })}
+            >
+              {profile.id === item.id ? (
+                <View>
+                  <View style={{borderWidth: 2, borderColor: '#ffffff'}}>
+                    <LogoImage src={userImages[item.photo]} width={50} height={50} radius={3} />
+                  </View>
+                  <Text style={styles.nameSelected}>{item.name}</Text>
+                </View>
+              ) : (
+                <View>
+                  <LogoImage src={userImages[item.photo]} width={40} height={40} radius={3} />
+                  <Text style={styles.name}>{item.name}</Text>
+                </View>
+              )}
+    
+            </Pressable>
+          ))}
+
         </View>
 
         <Text style={styles.text} onPress={() => {
-          setProfile('');
+          setProfile({});
           navigation.navigate('Browse');
         }}>
           <LogoImage src={edit} width={15} height={15} />

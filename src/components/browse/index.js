@@ -19,7 +19,6 @@ export default function BrowseComponent({ slides }) {
   const user = firebase.auth().currentUser || {};
   // firebase.auth().currentUser.updateProfile({ displayName: 'user', photoURL: '0' });
   // displayName = 'user1-user2-user3-... ? => profile.displayName = user.displayName.split("-")[n] ???
-  console.log(user);
 
   useEffect(() => {
     setTimeout(() => {
