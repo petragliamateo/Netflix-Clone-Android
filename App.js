@@ -15,6 +15,12 @@ export default function App() {
   const [profile, setProfile] = React.useState({});
   const [userData, setUserData] = React.useState([]);
 
+  /*
+  useEffect(() => {
+    console.log(userData)
+  }, [userData])
+  */
+
   return (
     <FormContext.Provider value={{ form, setForm }}>
       <FirebaseContext.Provider value={{ firebase }}>

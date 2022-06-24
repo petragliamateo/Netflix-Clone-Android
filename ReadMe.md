@@ -38,7 +38,7 @@ ProfileSetup:
   Opciones varias donde se puede cambiar de usuario, ir a usuarios o cerrar sesión -> SignOut.
   -> myList:
 
-
+-->Error when add user.
 
 Descargar APK:
-
+  https://expo.dev/artifacts/407c079f-4f68-45ea-921c-edc54527f821
