@@ -85,10 +85,7 @@ export default function ProfileSetup() {
   
   const userNames = user.displayName.split('-').filter((str) => str);
   const userPhotos = user.photoURL.split('-').filter((str) => str);
-  const userData = [];
-  for (let i = 0; i < userNames.length; i += 1) {
-    userData.push({ name: userNames[i], photo: userPhotos[i], id: i });
-  }
+  const { userData, setUserData } = useContext(ProfileContext);
 
   return (
     <View style={styles.container}>

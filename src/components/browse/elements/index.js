@@ -12,7 +12,6 @@ export default function BrowsePage({
     slideRows.indexOf(randomSet) < 5 ? 'series' : 'films'
   );
   const randomItem = randomSet.data[Math.floor(Math.random() * randomSet.data.length)];
-  console.log(profile);
 
   return (
     <ScrollView

@@ -1,7 +1,7 @@
 import {
   View, StyleSheet, TextInput, Pressable, Text, ScrollView,
 } from 'react-native';
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import { FirebaseContext } from '../context.firebase';
@@ -50,18 +50,7 @@ export default function AddUser() {
   const user = firebase.auth().currentUser || {};
   const navigation = useNavigation();
   const { profile, setProfile } = useContext(ProfileContext);
-
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    const userNames = user.displayName.split('-').filter((str) => str);
-    const userPhotos = user.photoURL.split('-').filter((str) => str);
-    const data = [];
-    for (let i = 0; i < userNames.length; i += 1) {
-      data.push({ name: userNames[i], photo: userPhotos[i], id: i });
-    }
-    setUserData(data);
-  }, []);
+  const { userData, setUserData } = useContext(ProfileContext);
 
   function addUser(isNew) {
     // If is new --> add user, else edit user.
@@ -70,7 +59,7 @@ export default function AddUser() {
         { name: profile.displayName, photo: profile.photoURL, id: prev.length + 1 },
       ));
     }
-
+    console.log(userData);
     let name = '';
     let photo = '';
     userData.forEach((item) => {
@@ -82,9 +71,11 @@ export default function AddUser() {
         photo += `${profile.photoURL}-`;
       }
     });
-    user.updateProfile({ displayName: name, photoURL: photo });
-    setProfile({});
-    navigation.navigate('Browse');
+    user.updateProfile({ displayName: name, photoURL: photo })
+      .then(() => {
+        setProfile({});
+        navigation.navigate('Browse');
+      });
   }
 
   function deleteUser() {
@@ -96,9 +87,11 @@ export default function AddUser() {
         photo += `${item.photo}-`;
       }
     });
-    user.updateProfile({ displayName: name, photoURL: photo });
-    setProfile({});
-    navigation.navigate('Browse');
+    user.updateProfile({ displayName: name, photoURL: photo })
+      .then(() => {
+        setProfile({});
+        navigation.navigate('Browse');
+      });
   }
 
   return (
@@ -136,7 +129,7 @@ export default function AddUser() {
       />
 
       <Pressable
-        onPress={() => (profile.displayName ? addUser(profile.isNew) : null)}
+        onPress={() => (profile.displayName && (addUser(profile.isNew)))}
         style={styles.button}
       >
         <Text style={{ color: profile.displayName ? 'green' : '#cccccc' }}>{profile.isNew ? 'Crear' : 'Guardar'}</Text>

@@ -2,13 +2,14 @@ import {
   Text, View, Image, ScrollView, Pressable,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styles from './browseStyle';
 import LogoImage from '../LogoImage';
 import { userImages, edit, add } from '../../../public/images';
+import { ProfileContext } from '../../context.profile';
 
 export function SelectProfile({ user, setProfile }) {
-  const [userData, setUserData] = useState([]);
+  const { userData, setUserData } = useContext(ProfileContext);
   const navigation = useNavigation();
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -19,8 +20,10 @@ export function SelectProfile({ user, setProfile }) {
     for (let i = 0; i < userNames.length; i += 1) {
       data.push({ name: userNames[i], photo: userPhotos[i], id: i });
     }
-    setUserData(data);
-  }, []);
+    setUserData((prev) => (prev !== data ? data : null));
+
+    console.log(userData);
+  }, [userData.length]);
 
   return (
     <ScrollView>
