@@ -55,13 +55,14 @@ export default function AddUser() {
   function addUser(isNew) {
     // If is new --> add user, else edit user.
     if (isNew) {
-      setUserData((prev) => prev.push(
-        { name: profile.displayName, photo: profile.photoURL, id: prev.length + 1 },
-      ));
+      setUserData((prev) => {
+        const temp = prev;
+        temp.push({ name: profile.displayName, photo: profile.photoURL, id: prev.length });
+        return temp;
+      });
     }
-    console.log(userData);
-    let name = '';
-    let photo = '';
+    let name = '-';
+    let photo = '-';
     userData.forEach((item) => {
       if (item.id !== profile.id) {
         name += `${item.name}-`;
@@ -79,8 +80,8 @@ export default function AddUser() {
   }
 
   function deleteUser() {
-    let name = '';
-    let photo = '';
+    let name = '-';
+    let photo = '-';
     userData.forEach((item) => {
       if (item.id !== profile.id) {
         name += `${item.name}-`;

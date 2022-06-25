@@ -9,7 +9,7 @@ import {
 import styles from '../styleGlobal';
 import LogoImage from './components/LogoImage';
 import { useAuth } from './hooks';
-import { cast, logoN, userImages } from '../public/images';
+import { cast, userImages } from '../public/images';
 import LoadingScreen from './components/browse/LoadingScreen';
 import { ProfileContext } from './context.profile';
 
@@ -17,8 +17,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Navigations() {
   const user = useAuth();
-  const { profile } = React.useContext(ProfileContext)
-  console.log(profile);
+  const { profile } = React.useContext(ProfileContext);
 
   return (
     <NavigationContainer>

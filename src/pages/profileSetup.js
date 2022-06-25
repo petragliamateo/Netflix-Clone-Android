@@ -138,6 +138,7 @@ export default function ProfileSetup() {
         <Text
           style={styles.menu}
           onPress={() => {
+            setProfile({});
             firebase.auth().signOut()
               .then(
                 navigation.navigate('Home')

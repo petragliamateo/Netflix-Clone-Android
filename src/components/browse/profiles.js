@@ -21,8 +21,6 @@ export function SelectProfile({ user, setProfile }) {
       data.push({ name: userNames[i], photo: userPhotos[i], id: i });
     }
     setUserData((prev) => (prev !== data ? data : null));
-
-    console.log(userData);
   }, [userData.length]);
 
   return (
